@@ -11,7 +11,7 @@ const reactionSchema = new Schema (
         reactionBody: {
             type: String,
             required: true,
-            max: 280
+            maxlength: 280
         },
         username: {
             type: String,
@@ -27,7 +27,8 @@ const reactionSchema = new Schema (
         toJson: {
             // virtuals: true,
             getters: true
-        }
+        },
+        id: false
     }
 );
 
@@ -61,7 +62,7 @@ const ThoughtSchema = new Schema (
 );
 
 ThoughtSchema.virtual('reactionCount').get (function() {
-    return this.friends.reduce((total, friend) => total + friend.length + 1)
+    return this.reactions.length;
 });
 
 const Thought = model('Thought', ThoughtSchema);

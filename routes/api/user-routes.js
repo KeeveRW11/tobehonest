@@ -1,13 +1,12 @@
 const router = require('express').Router();
 
-const { get } = require('mongoose');
 const {
     getAllUsers,
     getUserById,
     createUser,
     updateUser,
     deleteUser
-} = require('../../controllers');
+} = require('../../controllers/user-controller');
 
 router
     .route('/')
